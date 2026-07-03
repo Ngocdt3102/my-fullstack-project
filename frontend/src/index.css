@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+/* =========================
+   Home page animations
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSoft {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(243, 107, 33, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(243, 107, 33, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(243, 107, 33, 0);
+  }
+}
+
+@keyframes shineMove {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 90% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.75s ease both;
+}
+
+.animate-float-soft {
+  animation: floatSoft 4.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.2s infinite;
+}
+
+.animate-gradient-move {
+  background-size: 220% 220%;
+  animation: gradientMove 7s ease infinite;
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: translateX(-120%) skewX(-20deg);
+}
+
+.btn-shine:hover::before {
+  animation: shineMove 0.85s ease;
+}
+
+.reveal-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.reveal-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Tôn trọng người dùng hạn chế animation */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-float-soft,
+  .animate-pulse-glow,
+  .animate-gradient-move {
+    animation: none !important;
+  }
+
+  .btn-shine::before {
+    display: none;
+  }
+}
