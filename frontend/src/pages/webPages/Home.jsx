@@ -16,6 +16,7 @@ import {
   stats,
   trainingPrograms,
   whyChooseUs,
+  testimonials,
 } from "../../data/siteData";
 import backgroundHero from "../../assets/images/background_hero_home.jpg";
 import home_image_01 from "../../assets/images/home_image_01.jpg";
@@ -413,29 +414,33 @@ export default function Home() {
           />
 
           <div className="grid gap-6 md:grid-cols-3">
-            {["Học viên A1", "Học viên hạng A", "Học viên tại Đà Nẵng"].map(
-              (name) => (
-                <article
-                  key={name}
-                  className="reveal-card rounded-[1.5rem] bg-[#F3F8FC] p-7 shadow-lg shadow-blue-950/5 transition hover:bg-white hover:shadow-2xl hover:shadow-blue-950/10"
-                >
-                  <div className="mb-5 flex gap-1 text-[#FFD21F] drop-shadow-[0_0_10px_rgba(255,210,31,0.35)]">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} size={18} fill="currentColor" />
-                    ))}
-                  </div>
+          {testimonials.map((item) => (
+            <article
+              key={item.name}
+              className="reveal-card rounded-[1.5rem] bg-[#F3F8FC] p-7 shadow-lg shadow-blue-950/5 transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-2xl hover:shadow-blue-950/10"
+            >
+              <div className="mb-5 flex gap-1 text-[#FFD21F] drop-shadow-[0_0_10px_rgba(255,210,31,0.35)]">
+                {Array.from({ length: item.rating }).map((_, index) => (
+                  <Star
+                    key={index}
+                    size={18}
+                    fill="currentColor"
+                    className="text-[#FFD21F]"
+                  />
+                ))}
+              </div>
 
-                  <p className="leading-8 text-slate-600">
-                    “Trung tâm hỗ trợ hồ sơ rõ ràng, hướng dẫn dễ hiểu và thực
-                    hành sát với nội dung bài thi.”
-                  </p>
+              <p className="min-h-[120px] leading-8 text-slate-600 italic">
+                "{item.comment}"
+              </p>
 
-                  <h4 className="mt-6 font-black text-[#003F78]">{name}</h4>
-                  <p className="text-sm text-[#F36B21]">Học viên</p>
-                </article>
-              )
-            )}
-          </div>
+              <div className="mt-6 border-t border-slate-200 pt-4">
+                <h4 className="font-black text-[#003F78]">{item.name}</h4>
+                <p className="text-sm font-medium text-[#F36B21]">{item.role}</p>
+              </div>
+            </article>
+          ))}
+        </div>
         </div>
       </section>
 

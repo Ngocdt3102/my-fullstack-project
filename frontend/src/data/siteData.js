@@ -340,3 +340,25 @@ export const newsPosts = [
     desc: "Những thông tin cần biết về hồ sơ, thời gian học, lịch thi và các lưu ý trước khi đăng ký.",
   },
 ];
+export const testimonials = [
+    {
+      name: "Vi Mai",
+      role: "Học viên",
+      rating: 5,
+      comment: "Đăng ký nhanh gọn, tư vấn nhiệt tình.",
+    },
+    {
+      name: "Trinh Nguyễn",
+      role: "Học viên",
+      rating: 5,
+      comment:
+        "Địa chỉ nằm ở trung tâm, thuận tiện việc đi lại. Nộp hồ sơ nhanh chóng và dễ dàng. GV hỗ trợ tận tâm với học viên.",
+    },
+    {
+      name: "Nguyễn Thị Nghi",
+      role: "Học viên",
+      rating: 5,
+      comment:
+        "Trung tâm hỗ trợ nhiệt tình, đăng ký nhanh, thi sớm, được tập xe thoải mái trước khi thi.",
+    },
+  ];
